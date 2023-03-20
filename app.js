@@ -17,6 +17,25 @@ function renderUsers() {
     div.appendChild(userEmail);
   });
 }
+
+function successAlert(){
+    let alert = document.getElementById('alert');
+    alert.classList.add('success');
+    alert.innerText = 'User added successfully!'
+    setTimeout(()=>{
+        alert.classList.remove('success');
+        alert.innerText = ''
+    }, 2000)
+}
+function dangerAlert(){
+    let alert = document.getElementById('alert');
+    alert.classList.add('danger');
+    alert.innerText = 'Email already exists!'
+    setTimeout(()=>{
+        alert.classList.remove('danger');
+        alert.innerText = ''
+    }, 2000)
+}
 function register() {
   let name = document.getElementById("name");
   let email = document.getElementById("email");
@@ -31,8 +50,9 @@ function register() {
   });
   if (userEmailCount.length == 0) {
     users.push(tempUser);
+    successAlert();
   } else {
-    alert("email id exist");
+    dangerAlert()
   }
 
   renderUsers();
