@@ -56,5 +56,6 @@ function register() {
   }
 
   renderUsers();
-  console.log(users);
+  name.value = ''
+  email.value = ''
 }
