@@ -1,19 +1,61 @@
+
+
+
+
 let users = [];
+
+let leftcontainer = document.getElementById('leftContainer')
+let userDetailsContainer = document.getElementById('userDetailsContainer')
+let userDetails = document.getElementById('userDetails')
+userDetails.style.display = 'none'
+
+
+showDetails = (e)=>{
+  userDetailsContainer.innerHTML = ''
+ leftcontainer.style.display = 'none'
+ userDetails.style.display = 'block'
+ let email = e.target.innerText;
+let result = users.find((user)=>{
+  return user.email == email
+})
+// console.log(result);
+
+let nameElement = document.createElement('p')
+let emailElement = document.createElement('p')
+
+nameElement.innerText = result.name
+emailElement.innerText = result.email
+
+
+userDetailsContainer.appendChild(nameElement)
+userDetailsContainer.appendChild(emailElement)
+}
+
+goBack = () =>{
+  leftcontainer.style.display = 'block'
+  userDetails.style.display = 'none'
+}
+
+
+
 function renderUsers() {
   let userContainer = document.getElementById("users");
 
   userContainer.innerHTML = "";
   users.map((user) => {
     let div = document.createElement("div");
-    let userName = document.createElement("p");
+    // let userName = document.createElement("p");
     let userEmail = document.createElement("p");
     div.classList.add("user");
 
-    userName.innerText = user.name;
+    // userName.innerText = user.name;
     userEmail.innerText = user.email;
 
+div.addEventListener('click', showDetails)
+
+
     userContainer.appendChild(div);
-    div.appendChild(userName);
+    // div.appendChild(userName);
     div.appendChild(userEmail);
   });
 }

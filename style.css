@@ -49,6 +49,31 @@ input{
 .add{
     width: 400px;
 }
+
+/* .userDetails{
+    display: none;
+} */
+
+.userDetails p {
+ font-size: 18px;
+ font-weight: 600;
+}
+
+.userDetails h1{border: 1px solid lightblue;
+    display: inline;
+    padding: 8px 24px;
+    border-radius: 11px;
+    background-color: aquamarine;
+    cursor: pointer;
+}
+
+.userDetails h1:hover{
+    background-color: bisque;
+
+}
+
+
+
 .right-container{
     background-color: bisque;
     width: 500px;
